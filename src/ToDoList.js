@@ -11,7 +11,7 @@ const ToDoList = ({toDoList, markAsComplete}) => {
            {toDoList.map(todo => {
                
                return (    
-                   <ToDo todo={todo} markAsComplete={markAsComplete}/>
+                   <ToDo key={todo.id} todo={todo} markAsComplete={markAsComplete}/>
                    
                )
            })}

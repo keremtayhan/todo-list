@@ -5,18 +5,13 @@ import './App.css';
 
 
 function App() {
-
   const [ toDoList, setToDoList ] = useState(JSON.parse(localStorage.getItem('toDoList'))??[]);
   const [ text, setText ] = useState('');
-  const [ count, setCount ] = useState(parseInt(localStorage.getItem('count'))??0);
-  var theListe = [...toDoList];
-
 
   useEffect(() => {
     localStorage.setItem('toDoList',JSON.stringify(toDoList));
-    localStorage.setItem('count',count);    
-    document.title = `${count} adet task `;
-  },[count]);
+    document.title = `${toDoList.length} adet task `;
+  },[toDoList]);
 
   /*const handleToggle = (id) => {
     let mapped = toDoList.map(task => {
@@ -34,9 +29,9 @@ function App() {
   }
 
    function handleEkle() {
-    setCount(count+1);
+    const maxId = toDoList[toDoList.length-1]?.id ?? 0;
     const newToDoList = [...toDoList];
-    newToDoList.push({task: text, id: count});
+    newToDoList.push({task: text, id: maxId + 1});
     setToDoList(newToDoList);
     setText('');
   }
