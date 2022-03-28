@@ -2,7 +2,7 @@ import React from 'react';
 import ToDo from './ToDo';
  
  
-const ToDoList = ({toDoList, markAsComplete}) => {
+const ToDoList = ({toDoList, markAsComplete, markAsIncomplete}) => {
    
     
     return (
@@ -11,8 +11,7 @@ const ToDoList = ({toDoList, markAsComplete}) => {
            {toDoList.map(todo => {
                
                return (    
-                   <ToDo key={todo.id} todo={todo} markAsComplete={markAsComplete}/>
-                   
+                   <ToDo key={todo.id} todo={todo} markAsComplete={markAsComplete} markAsIncomplete={markAsIncomplete}/>
                )
            })}
            
