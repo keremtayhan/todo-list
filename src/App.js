@@ -80,7 +80,7 @@ function App() {
       <div className ="App-header">
        
       <Button onClick={groupEkle}>{group.length}</Button>
-      <Groups></Groups>
+      <Groups groups={group}></Groups>
 
       <Header>Todo Gir:</Header>      
       <Button onClick={handleEkle}>Ekle</Button>

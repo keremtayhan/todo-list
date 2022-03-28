@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'primereact/button';
-import { ToggleButton } from 'primereact/Togglebutton';
+import { ToggleButton } from 'primereact/togglebutton';
  
 const ToDo = ({todo, markAsComplete, markAsIncomplete}) => {
    return (
