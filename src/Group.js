@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Button } from 'primereact/button';
 import ToDoList from './ToDoList';
 const Group = ({group}) => {
    const [ toDoList, setToDoList ] = useState(JSON.parse(localStorage.getItem('toDoList'))??[]);
    const [ text, setText ] = useState('');
+   const [ groupText, setGroupText ] = useState('');
+
    useEffect(() => {
       localStorage.setItem('toDoList',JSON.stringify(toDoList));
       document.title = `${toDoList.length} adet task`;
@@ -42,7 +44,6 @@ const Group = ({group}) => {
      function groupEkle(){
        const newGroup = [...group];
        newGroup.push({name : groupText});
-       setGroup(newGroup);
        setText('');
      }
   
@@ -59,7 +60,7 @@ const Group = ({group}) => {
   
    return (
       <div className={group.complete ? "strike" : ""}>
-      {group.id}  <Button onClick={showGroup}>{group.name}</Button>
+      {group.id}  <Button onClick={null}>{group.name}</Button>
       </div>
    );
 };
