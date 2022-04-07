@@ -16,13 +16,14 @@ import "primereact/resources/primereact.min.css";                  //core css
 function App() {
   const [ toDoList, setToDoList ] = useState(JSON.parse(localStorage.getItem('toDoList'))??[]);
   const [ text, setText ] = useState('');
-  const [ group, setGroup] = useState([]);
+  const [ groupText,setGroupText] = useState('');
+  const [ groups, setGroups] = useState(JSON.parse(localStorage.getItem('groups'))??[]);
   
 
   useEffect(() => {
     localStorage.setItem('toDoList',JSON.stringify(toDoList));
     document.title = `${toDoList.length} adet task`;
-
+    localStorage.setItem('groups',JSON.stringify(groups));
   },[toDoList]);
   
 
@@ -54,10 +55,13 @@ function App() {
     setText('');
   }
 
+   function showGroup(){
+     
+   }  
    function groupEkle(){
-     const newGroup = [...group];
-     newGroup.push({groupName : group.id});
-     setGroup(newGroup);
+     const newGroups = [...groups];
+     newGroups.push({name : groupText});
+     setGroups(newGroups);
      setText('');
    }
 
@@ -73,15 +77,22 @@ function App() {
   }
 
   return (
-    <div style={{
-      backgroundImage : ``
-    }}>
+      <div>
+      
       <div className="App">
+      
+      <div class="tab">
+        <div className="tab.button">
+      <Groups groups={groups}></Groups>
+      
+      <Button onClick={groupEkle}>Grup Ekleyin</Button>
+      
+        </div>
+      </div>
+      
       <div className ="App-header">
-       
-      <Button onClick={groupEkle}>{group.length}</Button>
-      <Groups groups={group}></Groups>
-
+      
+      <InputText value={groupText} onChange={e => setGroupText(e.target.value)}/>
       <Header>Todo Gir:</Header>      
       <Button onClick={handleEkle}>Ekle</Button>
       <InputText value={text} onChange={e => setText(e.target.value)}/>
@@ -90,9 +101,11 @@ function App() {
       <br/>
       <ToDoList toDoList = {toDoList} markAsComplete={markAsComplete} markAsIncomplete = {markAsIncomplete}/>
       <br/>
+  
       </div>
     </div>
     </div>
+
   );
 }
 
