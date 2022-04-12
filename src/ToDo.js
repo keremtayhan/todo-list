@@ -5,7 +5,7 @@ import { ToggleButton } from 'primereact/togglebutton';
 const ToDo = ({todo, markAsComplete, markAsIncomplete}) => {
    return (
     <div className={todo.complete ? "strike" : ""}>
-        {todo.id}.  <Button>{todo.task}</Button>;
+        {todo.id}.  <Button>{todo.task}</Button>
         <ToggleButton
         style={{width : '200px'}}
         onLabel='Done with this task'

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Header from './Header';
 import ToDoList from "./ToDoList";
-import Groups from "./Groups";
+import Groups from "./Group";
 import './App.css';
 
 
@@ -80,10 +80,9 @@ function App() {
       <div>
       
       <div className="App">
-      
       <div class="tab">
         <div className="tab.button">
-      <Groups groups={groups}></Groups>
+      
       
       <Button onClick={groupEkle}>Grup Ekleyin</Button>
       

@@ -19,7 +19,7 @@ const Groups = ({groups,markAsComplete,markAsIncomplete,handleEkle,temizle}) => 
            {groups.map(group => {
                
                return (    
-                   <Group key={group.id} group={group} markAsComplete = {markAsComplete}/>
+                   <Group key={group.label} group={group} markAsComplete = {markAsComplete}/>
                )
            })}
            
